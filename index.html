@@ -81,48 +81,6 @@
       50% { transform: translateY(-15px); }
     }
 
-    .petal {
-      position: fixed;
-      top: -10px;
-      width: 12px;
-      height: 12px;
-      background: pink;
-      border-radius: 50%;
-      opacity: 0.7;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(-10%) rotate(0deg); }
-      100% { transform: translateY(110vh) rotate(360deg); }
-    }
-
-    .heart {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(-45deg);
-      animation: pop 1s ease-out forwards;
-    }
-
-    .heart::before, .heart::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
-
-    .heart::before { top: -10px; }
-    .heart::after { left: 10px; }
-
-    @keyframes pop {
-      0% { transform: scale(0) rotate(-45deg); opacity: 1; }
-      100% { transform: scale(2) rotate(-45deg); opacity: 0; }
-    }
-
     .btn {
       position: fixed;
       bottom: 20px;
@@ -156,15 +114,11 @@
 <div class="card">Твоя посмішка найкрасивіша 😊</div>
 <div class="card">Ти як теплий чай – поряд з тобою завжди спокійно та затишно 🍵</div>
 <div class="card">Ти як шоколад - чим більше тебе, тим щасливішим стає світ 🍫</div>
-<div class="card">Ти створюєш мистецтво навіть у дрібницях 🎨(Хотілося б побачити їх)</div>
+<div class="card">Ти твориш красу у світі просто торкаючись пензлем чи олівцем 🎨✨</div>
 <div class="card">Ти як музика — тебе хочеться слухати безкінечно</div>
 <div class="card">Ти — магія, яку неможливо пояснити ✨</div>
-<div class="card">я не бачу твої очі але відчуваю, що вони прикрасні 👁</div>
+<div class="card">Я не бачу твої очі, але відчуваю, що вони прикрасні 👁</div>
 
-<div class="footer">
-  <h2>Улюблений персонаж: Аяка ❄️</h2>
-  <p>Як вона - ти дуже красива навіть краще</p>
-</div>
 
 <audio id="bgMusic" loop>
   <source src="music.mp3" type="audio/mpeg">
@@ -173,17 +127,7 @@
 <button class="btn" onclick="toggleMusic()">🎶</button>
 
 <script>
-
-// лепестки
-for (let i = 0; i < 40; i++) {
-  let p = document.createElement('div');
-  p.className = 'petal';
-  p.style.left = Math.random()*100+'vw';
-  p.style.animationDuration = (4+Math.random()*6)+'s';
-  document.body.appendChild(p);
-}
-
-// сердца
+// сердца при клике
 window.addEventListener('click', e => {
   for(let i=0;i<8;i++){
     let h=document.createElement('div');
@@ -195,16 +139,11 @@ window.addEventListener('click', e => {
   }
 });
 
-// музыка ТОЛЬКО по кнопке
+// музыка только по кнопке
 function toggleMusic(){
   let m = document.getElementById('bgMusic');
-  if(m.paused){
-    m.play();
-  } else {
-    m.pause();
-  }
+  if(m.paused){ m.play(); } else { m.pause(); }
 }
-
 </script>
 
 </body>
