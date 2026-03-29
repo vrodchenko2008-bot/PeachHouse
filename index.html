@@ -1,85 +1,104 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ти — диво 💖</title>
+  <title>Ти – шедевр 💖</title>
+
   <style>
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(270deg, #fbc2eb, #a6c1ee, #fbc2eb);
+      background-size: 600% 600%;
+      animation: gradientMove 12s ease infinite;
       color: #333;
       text-align: center;
-      padding: 20px;
       overflow-x: hidden;
-      position: relative;
+    }
+
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
+      margin-top: 20px;
       animation: fadeIn 1s ease;
     }
 
     .photo {
       margin: 20px auto;
-      width: 200px;
-      height: 200px;
-      border-radius: 20px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
       overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: float 4s ease-in-out infinite;
     }
 
     .photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 20px;
     }
 
     .card {
-      background: white;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(10px);
       border-radius: 20px;
       padding: 15px;
-      margin: 10px auto;
-      max-width: 400px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      animation: slideUp 0.5s ease;
-      position: relative;
-      z-index: 1;
+      margin: 12px auto;
+      max-width: 420px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: slideUp 0.6s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.25);
     }
 
     .footer {
-      margin-top: 30px;
+      margin: 40px 0;
     }
 
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(-20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
+      from {opacity: 0; transform: translateY(-20px);} 
+      to {opacity: 1; transform: translateY(0);} }
 
     @keyframes slideUp {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
+      from {opacity: 0; transform: translateY(30px);} 
+      to {opacity: 1; transform: translateY(0);} }
 
-    @keyframes fall {
-      0% {transform: translateY(-10%) rotate(0deg); opacity: 1;}
-      100% {transform: translateY(110vh) rotate(360deg); opacity: 0;}
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
 
     .petal {
-      position: absolute;
+      position: fixed;
       top: -10px;
-      width: 15px;
-      height: 15px;
+      width: 12px;
+      height: 12px;
       background: pink;
       border-radius: 50%;
-      opacity: 0.8;
+      opacity: 0.7;
       animation: fall linear infinite;
     }
 
+    @keyframes fall {
+      0% { transform: translateY(-10%) rotate(0deg); }
+      100% { transform: translateY(110vh) rotate(360deg); }
+    }
+
     .heart {
-      position: absolute;
+      position: fixed;
       width: 20px;
       height: 20px;
       background: red;
@@ -96,79 +115,98 @@
       border-radius: 50%;
     }
 
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 10px;
-      top: 0;
-    }
+    .heart::before { top: -10px; }
+    .heart::after { left: 10px; }
 
     @keyframes pop {
-      0% {transform: scale(0) rotate(-45deg); opacity: 1;}
-      100% {transform: scale(1.5) rotate(-45deg); opacity: 0;}
+      0% { transform: scale(0) rotate(-45deg); opacity: 1; }
+      100% { transform: scale(2) rotate(-45deg); opacity: 0; }
     }
 
-    @media (max-width: 500px) {
-      h1 { font-size: 1.8em; }
+    .btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 16px;
+      border-radius: 30px;
+      border: none;
+      background: #ff4d6d;
+      color: white;
+      font-size: 14px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      cursor: pointer;
     }
 
-    audio { display: none; }
+    @media(max-width:500px){
+      h1{font-size:2em;}
+    }
   </style>
 </head>
+
 <body>
 
-  <h1>Ти — справжнє диво 💖</h1>
+<h1>Ти – справжнє диво 💖</h1>
 
-  <!-- ВСТАВ СВОЄ ФОТО НИЖЧЕ -->
-  <div class="photo">
-    <img src="photo_five.jpg" alt="Твоє фото">
-  </div>
+<div class="photo">
+  <img src="photo_five.jpg">
+</div>
 
-  <div class="card">Ти неймовірно красива ✨</div>
-  <div class="card">З тобою навіть звичайний день стає особливим 🌸</div>
-  <div class="card">Твоя усмішка — найкраще, що є у цьому світі 😊</div>
-  <div class="card">Ти як теплий чай у холодний день 🍵</div>
-  <div class="card">Ти солодка, як улюблений шоколад 🍫</div>
-  <div class="card">Ти створюєш мистецтво навіть у дрібницях 🎨(Хотілося б побачити їх)</div>
-  <div class="card">Ти як музика — тебе хочеться слухати безкінечно 🎶</div>
-  <div class="card">Ти — магія, яку неможливо пояснити ✨</div>
+<div class="card">Ти неймовірно гарна ✨</div>
+<div class="card">З тобою навіть звичайний день стає магією 🌸</div>
+<div class="card">Твоя посмішка найкрасивіша 😊</div>
+<div class="card">Ти як теплий чай – поряд з тобою завжди спокійно та затишно 🍵</div>
+<div class="card">Ти як шоколад - чим більше тебе, тим щасливішим стає світ 🍫</div>
+<div class="card">Ти створюєш мистецтво навіть у дрібницях 🎨(Хотілося б побачити їх)</div>
+<div class="card">Ти як музика — тебе хочеться слухати безкінечно</div>
+<div class="card">Ти — магія, яку неможливо пояснити ✨</div>
+<div class="card">я не бачу твої очі але відчуваю, що вони прикрасні 👁</div>
 
-  <div class="footer">
-    <h2>Улюблений персонаж: Аяка ❄️</h2>
-    <p>Як і вона — ти дуже красива</p>
-  </div>
+<div class="footer">
+  <h2>Улюблений персонаж: Аяка ❄️</h2>
+  <p>Як вона - ти дуже красива навіть краще</p>
+</div>
 
-  <audio id="bgMusic" loop autoplay>
-    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
-  </audio>
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-  <script>
-    // Падаючі пелюстки
-    for (let i = 0; i < 30; i++) {
-      let petal = document.createElement('div');
-      petal.className = 'petal';
-      petal.style.left = Math.random() * 100 + 'vw';
-      petal.style.animationDuration = (5 + Math.random() * 5) + 's';
-      petal.style.animationDelay = Math.random() * 5 + 's';
-      document.body.appendChild(petal);
-    }
+<button class="btn" onclick="toggleMusic()">🎶</button>
 
-    // Сердечка при кліку
-    document.body.addEventListener('click', function(e){
-      for(let i = 0; i < 5; i++) {
-        let heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.style.left = e.clientX - 10 + (Math.random() * 20 - 10) + 'px';
-        heart.style.top = e.clientY - 10 + (Math.random() * 20 - 10) + 'px';
-        heart.style.animationDuration = (0.8 + Math.random() * 0.5) + 's';
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 1000);
-      }
-    });
-  </script>
+<script>
+
+// лепестки
+for (let i = 0; i < 40; i++) {
+  let p = document.createElement('div');
+  p.className = 'petal';
+  p.style.left = Math.random()*100+'vw';
+  p.style.animationDuration = (4+Math.random()*6)+'s';
+  document.body.appendChild(p);
+}
+
+// сердца
+window.addEventListener('click', e => {
+  for(let i=0;i<8;i++){
+    let h=document.createElement('div');
+    h.className='heart';
+    h.style.left=e.clientX+(Math.random()*40-20)+'px';
+    h.style.top=e.clientY+(Math.random()*40-20)+'px';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),1000);
+  }
+});
+
+// музыка ТОЛЬКО по кнопке
+function toggleMusic(){
+  let m = document.getElementById('bgMusic');
+  if(m.paused){
+    m.play();
+  } else {
+    m.pause();
+  }
+}
+
+</script>
 
 </body>
 </html>
+
